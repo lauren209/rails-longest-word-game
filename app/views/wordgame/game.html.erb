@@ -1,0 +1,23 @@
+
+
+<div style="text-align: center;">
+<h1>Welcome to the word game</h1>
+<p>What's the largest word that you can more from these letters</p>
+
+<%= @grid %>
+<!--
+<form action="/score" method="get" style="text-align: center">
+  <label for="question">Give me your best word</label>
+  <input type="hidden" name="grid_letters" value= "<% @grid_letters %>" >
+  <input type="text" id="question" name="response" placeholder="guess">
+  <input type="submit" value="Go on!">
+</form>
+</div>
+ -->
+ <%= form_tag("score", method: "get") do %>
+ <%= label_tag(:response, "Type your word") %>
+ <%= text_field_tag(:response) %>
+ <%= hidden_field_tag(:grid, @grid) %>
+ <%= hidden_field_tag(:time, @start_time) %>
+ <%= submit_tag("go") %>
+ <% end %>
